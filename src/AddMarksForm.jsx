@@ -85,7 +85,7 @@ function AddMarksForm() {
                     </div>
                 </div>
             }
-            <AllSubjectMarksForm subjectArray={subjectArray} subjectMarks={subjectMarks} setSubjectMarks={setSubjectMarks} />
+            <AllSubjectMarksForm setSubjectArray={setSubjectArray} subjectArray={subjectArray} subjectMarks={subjectMarks} setSubjectMarks={setSubjectMarks} />
         </>
     );
 }

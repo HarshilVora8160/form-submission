@@ -4,26 +4,9 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const AllSubjectMarksForm = ({ subjectArray, subjectMarks, setSubjectMarks }) => {
+const AllSubjectMarksForm = ({ setSubjectArray, subjectArray, subjectMarks, setSubjectMarks }) => {
 
-    const handleChange = (e) => {
-
-        const findObj = subjectArray?.find((ele, idx) => {
-            return e === idx
-        })
-        console.log("findObj----------------", findObj);
-        const { subject, marks } = subjectMarks
-        setSubjectMarks({
-            subject,
-            marks
-        })
-
-    }
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     console.log("handleSubmit---------------");
-    // }
+    const handleChange = (e, ind) => setSubjectArray(subjectArray?.map((sub, indexValu) => indexValu === ind ? { ...sub, marks: e.target.value } : sub))
 
     return (
         <div className='p-4 rounded-xl grid grid-cols-12 gap-5' >
@@ -57,8 +40,8 @@ const AllSubjectMarksForm = ({ subjectArray, subjectMarks, setSubjectMarks }) =>
                                             placeholder="Enter marks..."
                                             name='marks'
                                             value={ele.marks ? ele.marks : "subjectMarksData?.marks"}
-                                            onChange={handleChange}
-                                            onClick={() => handleChange(idx)}
+                                            onChange={(e) => handleChange(e, idx)}
+                                        // onClick={() => handleChange(idx)}
                                         />
                                     </Form.Group>
                                 </Row>
