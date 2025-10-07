@@ -8,7 +8,8 @@ import AllSubjectMarksForm from './AllSubjectMarksForm';
 function AddMarksForm() {
 
     const [subjectArray, setSubjectArray] = useState([])
-    console.log("subjectArray--------------",subjectArray);
+    console.log("subjectArray--------------", subjectArray);
+    const [errorsArray, setErrorsArray] = useState(null)
 
     // =============================================================================================
 
@@ -20,8 +21,7 @@ function AddMarksForm() {
         subject,
         marks: ""
     });
-    console.log("subjectMarks-----------------",subjectMarks);
-    
+
 
     const handleChange = (event) => {
         setSubjectMarks({
@@ -85,7 +85,14 @@ function AddMarksForm() {
                     </div>
                 </div>
             }
-            <AllSubjectMarksForm setSubjectArray={setSubjectArray} subjectArray={subjectArray} subjectMarks={subjectMarks} setSubjectMarks={setSubjectMarks} />
+            <AllSubjectMarksForm
+                subjectArray={subjectArray}
+                subjectMarks={subjectMarks}
+                errorsArray={errorsArray}
+                setErrorsArray={setErrorsArray}
+                setSubjectArray={setSubjectArray}
+                setSubjectMarks={setSubjectMarks}
+            />
         </>
     );
 }
